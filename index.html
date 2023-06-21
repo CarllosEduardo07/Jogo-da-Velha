@@ -5,24 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jogo da Velha</title>
   <link rel="stylesheet" href="style.css">
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </head>
 <body>
   <main>
     <h1>JOGO DA VELHA</h1>
     <hr>
-      <div class="game">
-        <button class="cell" data-i="1"></button>
-        <button class="cell" data-i="2"></button>
-        <button class="cell" data-i="3"></button>
-        <button class="cell" data-i="4"></button>
-        <button class="cell" data-i="5"></button>
-        <button class="cell" data-i="6"></button>
-        <button class="cell" data-i="7"></button>
-        <button class="cell" data-i="8"></button>
-        <button class="cell" data-i="9"></button>
+      <div class="board" data-board>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
       </div>
-      <h2 class="crurrentPlayer"></h2>
+      <div class="winning-message" data-winning-message>
+        <p class="winning-message-text" data-winning-message-text></p>
+        <button class="winning-message-button">Reiniciar</button>
+      </div>
   </main>
 </body>
 </html>
