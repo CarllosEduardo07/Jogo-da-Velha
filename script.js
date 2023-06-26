@@ -2,6 +2,7 @@ const cellElements = document.querySelectorAll('[data-cell]'); //selecionando um
 const board = document.querySelector('[data-board]');
 const winningMessageTextElement = document.querySelector('[data-winning-message-text]');
 const winningMessage = document.querySelector('[data-winning-message]');
+const restartButton = document.querySelector('[data-restartButton]');
 
 let isCircleTurn;
 
@@ -18,13 +19,17 @@ const positions = [
 
 // iniciar colocando o hover de x ou circle
 const startGame = () => {
+    isCircleTurn = false;
+
     for (const cell of cellElements) {
+        cell.classList.remove('circle');
+        cell.classList.remove('x');
+        cell.removeEventListener('click', handleClick);
         cell.addEventListener('click', handleClick, { once: true });
     }
 
-    isCircleTurn = false;
-
-    board.classList.add('x');
+    setBoardHoverClass();
+    winningMessage.classList.remove('show-winning-message'); //tira mensagem de vitoria
 };
 
 //fim de jogo
@@ -32,8 +37,16 @@ const endGame = empate => {
     if (empate) {
         winningMessageTextElement.innerHTML = 'Empate!';
     } else {
-        winningMessageTextElement.innerHTML = isCircleTurn ? 'Círculo Venceu!' : 'X Venceu!';
+        winningMessageTextElement.innerHTML = isCircleTurn ? 'O Venceu!' : 'X Venceu!';
     }
+
+    winningMessage.classList.add('show-winning-message');
+};
+
+const checkForDraw = () => {
+    return [...cellElements].every(cell => {
+        return cell.classList.contains('x') || cell.classList.contains('circle');
+    });
 };
 
 // checar vitoria
@@ -49,9 +62,8 @@ const placeMark = (cell, classToAdd) => {
     cell.classList.add(classToAdd);
 };
 
-// mudar o turno do jogador
-const swapTurns = () => {
-    isCircleTurn = !isCircleTurn;
+// verificar o turno no jogador
+const setBoardHoverClass = () => {
     board.classList.remove('circle');
     board.classList.remove('x');
 
@@ -60,6 +72,12 @@ const swapTurns = () => {
     } else {
         board.classList.add('x');
     }
+};
+
+// mudar o turno do jogador
+const swapTurns = () => {
+    isCircleTurn = !isCircleTurn;
+    setBoardHoverClass();
 };
 
 const handleClick = e => {
@@ -71,13 +89,20 @@ const handleClick = e => {
 
     //verificar por vitoria
     const isWin = checkForWin(classToAdd);
-    if (isWin) {
-        endGame(true);
-    }
     //verificar por empate
+    const isDraw = checkForDraw();
 
-    //mudar o simbolo de X ou circolo
-    swapTurns();
+    if (isWin) {
+        endGame(false);
+    } else if (isDraw) {
+        endGame(true);
+    } else {
+        //mudar o simbolo de X ou circolo
+        swapTurns();
+    }
 };
 
 startGame();
+
+// reiniciar jogo
+restartButton.addEventListener('click', startGame);
