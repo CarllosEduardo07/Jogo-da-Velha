@@ -1,4 +1,4 @@
-# Jogo-da-Velha
+# Jogo da Velha
 
 ### projeto feito para colocar no portfolio
 
