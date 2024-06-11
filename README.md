@@ -14,7 +14,7 @@ Projeto feito para praticar conceitos do javaScript
 <li>JavaScript</li>
 
 
-## Demostração [Link do Projeto](https://jogo-da-velha-projeto.vercel.app/)
+## Demonstração [Link do Projeto](https://jogo-da-velha-projeto.vercel.app/)
 ![image](https://github.com/CarllosEduardo07/Jogo-da-Velha/assets/80606019/aa48737d-d58e-4ce5-ab22-4ea115c14384)
 
 
