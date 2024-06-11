@@ -1,6 +1,23 @@
-# Jogo da Velha
+<h1 align="center" style="font-weight: bold;">Jogo da Velha</h1>
+<p align="center">
+ <a href="#about">Sobre</a> • 
+  <a href="#stacks">Tecnologias Utilizadas</a>
+</p>
 
-### projeto feito para colocar no portfolio
+<h2 id="about">📌 Sobre</h2>
+Projeto feito para praticar conceitos do javaScript
 
-![Jovo da velha](https://github.com/CarllosEduardo07/Jogo-da-Velha/assets/80606019/3096962e-c76a-4b43-aa35-c85720724b9d)
+<h2 id="stacks">🚀 Tecnologias Utilizadas</h2>
+
+<li>HTML5</li>
+<li>CSS3</li>
+<li>JavaScript</li>
+
+
+## Demostração [Link do Projeto](https://jogo-da-velha-projeto.vercel.app/)
+![image](https://github.com/CarllosEduardo07/Jogo-da-Velha/assets/80606019/aa48737d-d58e-4ce5-ab22-4ea115c14384)
+
+
+
+
 
